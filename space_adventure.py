@@ -87,8 +87,8 @@ class Player(pygame.sprite.Sprite):
             self.speed_x = 8
 
         self.rect.x += self.speed_x
-        if self.rect.right > SCREEN_WIDTH :
-            self.rect.right = SCREEN_WIDTH 
+        if self.rect.right > SCREEN_WIDTH:
+            self.rect.right = SCREEN_WIDTH
         if self.rect.left < 0:
             self.rect.left = 0
 
@@ -298,6 +298,8 @@ def main_game():
                 player.hide()
                 if player.lives == 0:
                     game_over = True
+                    running = False
+                    break
         
         # Check player-powerup collisions
         hits = pygame.sprite.spritecollide(player, powerups, True)
@@ -308,6 +310,7 @@ def main_game():
                     player.shield = 100
             if hit.type == 'power':
                 player.powerup()
+                # Ensure power-up effect is visible (e.g., double bullets)
         
         if game_over:
             running = False

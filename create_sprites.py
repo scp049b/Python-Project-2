@@ -113,6 +113,7 @@ def create_explosion_sprites():
         
         # Create a gradient color explosion
         color = (255, 255 - (i * 40), 0)
+        #hbjdfhdfiudyhfiudifyiy
         for r in range(radius, 0, -4):
             intensity = max(0, min(255, 255 - (radius - r) * 8))
             explosion_color = (color[0], intensity, 0)
